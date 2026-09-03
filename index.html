@@ -244,6 +244,32 @@
             border-color: var(--accent-cyan);
         }
 
+        .app-icon-container {
+            width: 56px;
+            height: 56px;
+            margin-bottom: 20px;
+            border-radius: 14px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.03);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-blue);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover .app-icon-container {
+            border-color: var(--accent-cyan);
+            background: rgba(6, 182, 212, 0.05);
+            transform: scale(1.05);
+        }
+
+        .app-icon {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .product-card::before {
             content: '';
             position: absolute;
@@ -331,8 +357,8 @@
             <div class="logo-text">AFFU<span>LABS</span></div>
         </a>
         <ul class="nav-links">
+            <li><a href="#apps">Our Apps</a></li>
             <li><a href="#ecosystem">Solutions</a></li>
-            <li><a href="https://affulabs.com/rugged">Rugged App</a></li>
             <li><a href="mailto:support@affulabs.com">Contact</a></li>
         </ul>
     </header>
@@ -345,11 +371,35 @@
         <h1>Engineering Elite <span>Software & Intelligent Systems</span></h1>
         <p class="subtitle">Building high-performance iOS apps, Android apps, and web platforms — with immersive games, drones, and robotics coming soon.</p>
         <div class="cta-group">
-            <a href="https://affulabs.com/rugged" class="btn btn-primary">
-                Explore Rugged Ecosystem
+            <a href="#apps" class="btn btn-primary">
+                View Our Apps
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.33331 8H12.6666M12.6666 8L8.00031 3.33331M12.6666 8L8.00031 12.6666" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
-            <a href="https://github.com/abrraar/Rugged-App/releases/tag/v1.0.0" class="btn btn-secondary">Download Android APK</a>
+            <a href="mailto:support@affulabs.com" class="btn btn-secondary">Get in Touch</a>
+        </div>
+    </section>
+
+    <section id="apps" class="ecosystem">
+        <h2 class="section-title">Featured Apps</h2>
+        <div class="card-grid">
+            <div class="product-card">
+                <div class="app-icon-container">
+                    <img src="rugged/favicon.png" alt="Rugged Icon" class="app-icon">
+                </div>
+                <span class="product-tag">Productivity & Utility</span>
+                <h3>Rugged</h3>
+                <p>A high-performance ecosystem designed for seamless workflow integration and advanced system management.</p>
+                <a href="/rugged" class="link-arrow">Enter Rugged &rarr;</a>
+            </div>
+            <div class="product-card" style="opacity: 0.6; border-style: dashed;">
+                <div class="app-icon-container" style="background: transparent; border-style: dashed;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--text-secondary);"><path d="M12 5v14M5 12h14"/></svg>
+                </div>
+                <span class="product-tag">Coming Soon</span>
+                <h3>New Innovations</h3>
+                <p>We are currently engineering more intelligent systems and high-performance applications.</p>
+                <span class="link-arrow" style="opacity: 0.5;">In Development &rarr;</span>
+            </div>
         </div>
     </section>
 
@@ -357,13 +407,10 @@
         <h2 class="section-title">Capabilities & Solutions</h2>
         <div class="card-grid">
             <div class="product-card">
-                <span class="product-tag">Mobile & Web Platforms</span>
-                <h3>iOS, Android & Web Apps</h3>
+                <span class="product-tag">Engineering</span>
+                <h3>iOS, Android & Web</h3>
                 <p>Robust, scalable, and beautifully engineered applications built with native performance and cross-platform precision.</p>
-                <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px;">
-                    <a href="https://affulabs.com/rugged" class="link-arrow">Launch Web App &rarr;</a>
-                    <a href="https://github.com/abrraar/Rugged-App/releases/tag/v1.0.0" class="link-arrow" style="color: var(--accent-cyan);">Download APK &darr;</a>
-                </div>
+                <a href="mailto:support@affulabs.com" class="link-arrow">Work with Us &rarr;</a>
             </div>
             <div class="product-card">
                 <span class="product-tag">Future Innovations</span>

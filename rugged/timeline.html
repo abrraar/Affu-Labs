@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline | Rugged App</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .timeline-container {
+            position: relative;
+            padding-left: 30px;
+            border-left: 2px solid var(--accent-color);
+            margin-left: 10px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -41px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--bg-color);
+            border: 4px solid var(--accent-color);
+            border-radius: 50%;
+        }
+        .version-tag {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .release-date {
+            color: var(--text-muted);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .change-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+        .change-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+        }
+        .change-list li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+        .change-list ul {
+            list-style: none;
+            padding-left: 20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .change-list ul li {
+            padding-left: 15px;
+            margin-bottom: 5px;
+            font-size: 0.95em;
+            color: var(--text-secondary);
+            opacity: 0.8;
+        }
+        .change-list ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-logo">RUGGED APP</a>
+        <div class="nav-links">
+            <a href="about.html">About</a>
+            <a href="timeline.html">Timeline</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1 class="section-title">SYSTEM <span>TIMELINE</span></h1>
+        <p>A chronological record of the Rugged evolution.</p>
+    </header>
+
+    <main class="page-layout">
+        <aside class="page-sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="#v1-1-0" class="active">Version 1.1.0</a></li>
+                <li><a href="#v1-0-0">Version 1.0.0</a></li>
+            </ul>
+        </aside>
+
+        <article class="page-body">
+            <span class="last-updated">LAST UPDATED: SEPTEMBER 2026</span>
+            <div class="timeline-container">
+                <section id="v1-1-0" class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                        <span class="version-tag">v1.1.0</span>
+                        <span class="release-date">September 2026</span>
+                    </div>
+                    <h3>ADAPTIVE ARCHITECTURE & OFFLINE-FIRST SYNC</h3>
+                    <p>This release introduces significant structural enhancements, focusing on device compatibility and data reliability across the training ecosystem.</p>
+                    <ul class="change-list">
+                        <li><strong>Adaptive Layout Engine</strong>: Implementation of intelligent UI scaling for Tablets and Foldables. The system dynamically adjusts font sizes, widget dimensions, and navigation components.</li>
+                        <li><strong>Offline-First Sync Architecture</strong>: A robust overhaul of the data synchronization layer with local SQLite persistence and background reconciliation to the cloud.</li>
+                    </ul>
+                </section>
+                <section id="v1-0-0" class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                        <span class="version-tag">v1.0.0</span>
+                        <span class="release-date">August 2026</span>
+                    </div>
+                    <h3>INITIAL DEPLOYMENT</h3>
+                    <p>The deployment of Rugged App as a digital ecosystem for High Intensity Training and physiological monitoring.</p>
+                    <ul class="change-list">
+                        <li><strong>HIT Library</strong>: Digital archive comprising classic High Intensity Training cycles and workouts.</li>
+                        <li><strong>Exercise Suite</strong>: Dedicated exercise manager providing access to movement guides and custom exercise tracking.</li>
+                        <li><strong>The Tracker</strong>: Centralized tracking modules for HIT Workouts, Body Composition, Nutrition, Hydration, Sleep, and Supplement Stacks.</li>
+                    </ul>
+                </section>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="nav-logo">RUGGED APP</div>
+        <p style="color: #444444; margin-top: 10px;">&copy; 2026 RUGGED APP</p>
+
+        <div class="footer-links">
+            <a href="disclaimer.html">Disclaimer</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="legal.html">Legal</a>
+        </div>
+    </footer>
+
+    <script>
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.sidebar-menu a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href.startsWith('#')) {
+                    link.classList.remove('active');
+                    if (href === '#' + current) {
+                        link.classList.add('active');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

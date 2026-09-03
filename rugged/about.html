@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Rugged App</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-logo">RUGGED APP</a>
+        <div class="nav-links">
+            <a href="about.html">About</a>
+            <a href="timeline.html">Timeline</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1 class="section-title">ABOUT THE <span>SYSTEM</span></h1>
+    </header>
+
+    <main class="page-layout">
+        <aside class="page-sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="#intro" class="active">Introduction</a></li>
+                <li><a href="#struggle">The Struggle</a></li>
+                <li><a href="#solution">The Solution</a></li>
+                <li><a href="#principles">The Principles</a></li>
+                <li><a href="#methodology">Methodology</a></li>
+                <li><a href="#provides">What We Provide</a></li>
+                <li><a href="#mission">Our Mission</a></li>
+            </ul>
+        </aside>
+
+        <article class="page-body">
+            <span class="last-updated">LAST UPDATED: SEPTEMBER 2026</span>
+
+            <section id="intro">
+                <h3>INTRODUCTION</h3>
+                <p>Welcome to the official About page for the Rugged App. This platform is built on the scientific methodologies and core principles of High Intensity Training (HIT). You will learn about the common struggles of tracking intense training, the importance of adaptation and progression, and how our data-driven visual analytics help you master your training evolution.</p>
+            </section>
+
+            <section id="struggle" style="margin-top: 60px;">
+                <h3>THE PROBLEM: THE LOGBOOK STRUGGLE</h3>
+                <p>When training with high intensity, meticulous record-keeping is the only way to measure success. However, traditional methods often fail the trainee. Physical notebooks are easily lost, and generic notes apps quickly become messy, endless lists that are impossible to search or analyze.</p>
+                <p>Furthermore, true High Intensity Training is exhausting. When you have pushed your body to absolute failure, you need an effortless logging experience. This mental drain makes consistent logging a burden without a dedicated, streamlined system.</p>
+            </section>
+
+            <section id="solution" style="margin-top: 60px;">
+                <h3>THE SOLUTION: BUILT FOR INTENSITY</h3>
+                <p>We built Rugged App specifically to solve these frustrations. Rugged provides a permanent, searchable digital ledger for your training history, ensuring you never lose a single rep of progress again.</p>
+            </section>
+
+            <section id="principles" style="margin-top: 60px;">
+                <h3>ADAPTATION & PROGRESSION</h3>
+                <p>High Intensity Training emphasizes two vital principles: <strong>Adaptation</strong> and <strong>Progression</strong>. In HIT, real progress means systematically increasing load or reps over time.</p>
+                <p>Rugged App translates your workout logs into clear strength and volume trends in real-time, giving you the clarity needed to make precise, data-driven decisions.</p>
+            </section>
+
+            <section id="methodology" style="margin-top: 60px;">
+                <h3>DATA & METHODOLOGY</h3>
+                <p>To provide accurate progression tracking, Rugged calculates <strong>Volume</strong> as total workload per exercise (Weight × Reps) and estimates <strong>Strength</strong> as One-Rep Max (1RM) using established industry formulas.</p>
+                <p><strong>A Note on Precision:</strong> While Rugged provides precise tracking and scientific estimates, these analytics serve as guidance. Listen to your physical feedback and prioritize safety at all times.</p>
+            </section>
+
+            <section id="provides" style="margin-top: 60px;">
+                <h3>WHAT RUGGED APP PROVIDES</h3>
+                <ul class="credit-list">
+                    <li><strong>Visual Progression Graphs</strong> <span> to analyze strength and volume trends.</span></li>
+                    <li><strong>Effortless Logging</strong> <span> designed for post-failure simplicity.</span></li>
+                    <li><strong>Scientific Analysis</strong> <span> to measure true muscle adaptation.</span></li>
+                    <li><strong>Permanent Archive</strong> <span> keeping your training history secure and searchable.</span></li>
+                </ul>
+            </section>
+
+            <section id="mission" style="margin-top: 60px;">
+                <h3>OUR CORE MISSION</h3>
+                <p>To provide serious trainees with precision tracking, re-introducing scientific clarity to high intensity training.</p>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <div class="nav-logo">RUGGED APP</div>
+        <p style="color: #444444; margin-top: 10px;">&copy; 2026 RUGGED APP</p>
+
+        <div class="footer-links">
+            <a href="disclaimer.html">Disclaimer</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="legal.html">Legal</a>
+        </div>
+    </footer>
+
+    <script>
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.sidebar-menu a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href.startsWith('#')) {
+                    link.classList.remove('active');
+                    if (href === '#' + current) {
+                        link.classList.add('active');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

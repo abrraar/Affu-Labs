@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services — AffuLabs Business & Partnership</title>
+    <link rel="icon" type="image/png" href="../logo/affulabs_logo_nobackground.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #030712;
+            --bg-card: rgba(15, 23, 42, 0.6);
+            --border-blue: rgba(59, 130, 246, 0.2);
+            --accent-blue: #3B82F6;
+            --accent-cyan: #06B6D4;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .tech-glow {
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(6, 182, 212, 0.05) 50%, transparent 80%);
+            z-index: -1;
+            filter: blur(80px);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 34px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--text-primary);
+        }
+
+        .logo-text span {
+            color: var(--accent-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .hero {
+            max-width: 1000px;
+            margin: 80px auto 60px auto;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--border-blue);
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(32px, 5vw, 64px);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+
+        h1 span, h2 span {
+            background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 50%, #06B6D4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section {
+            max-width: 1100px;
+            margin: 0 auto 100px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(26px, 4vw, 36px);
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .card-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-blue);
+            border-radius: 20px;
+            padding: 40px 30px;
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-cyan);
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        .service-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 22px;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .process-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+            flex-shrink: 0;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .step-content h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .step-content p {
+            color: var(--text-secondary);
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.1));
+            border: 1px solid var(--border-blue);
+            border-radius: 24px;
+            padding: 60px 40px;
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s;
+            background: var(--accent-blue);
+            color: white;
+            box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -5px rgba(59, 130, 246, 0.6);
+            background: #2563EB;
+        }
+
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        @media (max-width: 640px) {
+            .process-step {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tech-glow"></div>
+
+    <header>
+        <a href="../index.html" class="logo-container">
+            <img src="../logo/affulabs_logo_nobackground.png" alt="AffuLabs Logo" class="logo-img">
+            <div class="logo-text">AFFU<span>LABS</span></div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#apps">Apps</a></li>
+            <li><a href="mailto:support@affulabs.com">Contact</a></li>
+        </ul>
+    </header>
+
+    <section class="hero">
+        <div class="badge">Business & Partnership</div>
+        <h1>Your Vision, <span>Our Engineering</span></h1>
+        <p style="color: var(--text-secondary); font-size: 18px; max-width: 700px; margin: 0 auto;">We take your words, thoughts, and ideas and transform them into high-performance digital reality.</p>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Professional Services</h2>
+        <div class="card-grid">
+            <div class="service-card">
+                <h3>iOS & Android</h3>
+                <p>Native-grade mobile applications built for high performance, ensuring your users get the best experience on any device.</p>
+            </div>
+            <div class="service-card">
+                <h3>Web Platforms</h3>
+                <p>From landing pages to complex web systems, we design and develop responsive, fast-loading web environments.</p>
+            </div>
+            <div class="service-card">
+                <h3>Full Customization</h3>
+                <p>No templates. Everything is built from the ground up to match your specific business requirements and brand identity.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">The AffuLabs Edge</h2>
+        <div class="card-grid">
+            <div class="service-card" style="border-left: 4px solid var(--accent-blue);">
+                <h3>Always Available</h3>
+                <p>We are your dedicated tech partners. We stay available to ensure your application runs smoothly long after launch.</p>
+            </div>
+            <div class="service-card" style="border-left: 4px solid var(--accent-cyan);">
+                <h3>Responsive & Adaptive</h3>
+                <p>Your app will look and feel perfect on every screen size—from the smallest phone to the largest desktop monitor.</p>
+            </div>
+            <div class="service-card" style="border-left: 4px solid #8B5CF6;">
+                <h3>High-Velocity Performance</h3>
+                <p>We optimize every line of code to ensure your software is fast, lightweight, and reliable under any load.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Our Process: <span>Words to Tech</span></h2>
+        <div class="process-container">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Discovery & Listening</h4>
+                    <p>We start by collecting your thoughts and goals. We listen to your vision in your own words to understand the core problem you want to solve.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Transformation</h4>
+                    <p>Our engineers translate your ideas into a technical blueprint. We map out the features, the user flow, and the architecture.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Engineering & Launch</h4>
+                    <p>We build your application with precision. Once it meets our high standards for speed and reliability, we help you launch it to the world.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>Continuous Support</h4>
+                    <p>Launch is just the beginning. We provide ongoing support to keep your tech updated and scale it as your business grows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section">
+        <div class="cta-box">
+            <h2 style="margin-bottom: 20px;">Ready to build something great?</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 32px;">Let's turn your ideas into a high-performance application.</p>
+            <a href="mailto:support@affulabs.com" class="btn">
+                Start a Conversation
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5l7 7 7-7M3 15h14V5H3v10z"/></svg>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 AffuLabs. Professional Software Engineering & Digital Transformation.</p>
+    </footer>
+
+</body>
+</html>

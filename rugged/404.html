@@ -1,115 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="/rugged/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rugged App | High Intensity Training</title>
+    <title>Rugged App | Shared Content</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="css/styles.css">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
     <style>
-        html { height: 100% }
         body {
-            margin: 0;
-            min-height: 100%;
-            background-color: #000000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 400px;
+            padding: 40px 24px;
+        }
+
+        .logo-main {
+            font-size: 36px;
+            letter-spacing: 6px;
+            color: #FFFFFF;
+            margin-bottom: 40px;
+        }
+
+        .icon {
+            width: 72px;
+            height: 72px;
+            background-color: #8B1A2F1A;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 32px;
+            border: 1px solid #8B1A2F33;
+        }
+
+        .icon svg {
+            width: 32px;
+            height: 32px;
+            fill: #8B1A2F;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+        }
+
+        p {
+            color: #CCCCCC;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 48px;
+            letter-spacing: 0.5px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-bottom: 16px;
+            transition: all 0.2s;
+            box-sizing: border-box;
+            letter-spacing: 2px;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+        .btn-primary {
+            background-color: #8B1A2F;
+            color: #FFFFFF;
+            box-shadow: 0 8px 24px rgba(139, 26, 47, 0.2);
+        }
+
+        .footer-text {
+            margin-top: 60px;
+            font-size: 12px;
+            color: #444444;
+            letter-spacing: 2px;
         }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html" class="nav-logo">RUGGED APP</a>
-        <div class="nav-links">
-            <a href="about.html">About</a>
-            <a href="timeline.html">Timeline</a>
-            <a href="contact.html">Contact</a>
-        </div>
-    </nav>
+    <div class="container">
+        <div class="logo-main">RUGGED APP</div>
 
-    <header class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <span class="sub-logo">BEYOND FAILURE</span>
-            <h1>RUGGED</h1>
-            <h2 class="hero-subtitle">The High Intensity Training Tracking Application</h2>
-            <p>The definitive tracking system for High Intensity Training. Log your sessions, track progression, and master your recovery.</p>
-            <div class="store-buttons">
-                <div class="btn-store">
-                    <svg viewBox="0 0 512 512" fill="currentColor">
-                        <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
-                    </svg>
-                    <div class="btn-store-content">
-                        <span class="btn-store-subtitle">Coming Soon</span>
-                        <span class="btn-store-title">Google Play</span>
-                    </div>
-                </div>
-                <div class="btn-store">
-                    <svg viewBox="0 0 384 512" fill="currentColor">
-                        <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
-                    </svg>
-                    <div class="btn-store-content">
-                        <span class="btn-store-subtitle">Coming Soon</span>
-                        <span class="btn-store-title">App Store</span>
-                    </div>
-                </div>
-            </div>
+        <div class="icon">
+            <svg viewBox="0 0 24 24">
+                <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z"/>
+            </svg>
         </div>
-    </header>
 
-    <section id="features">
-        <h2 class="section-title">System <span>Features</span></h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <h3>Training Ledger</h3>
-                <p>Manage HIT cycles with automated progression analysis. Track strength growth (1RM) and volume changes across every protocol.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Nutrition Engine</h3>
-                <p>Precision macronutrient tracking with a custom nutrition ledger. Save, log, and share meal templates with the community.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Supplement Stacker</h3>
-                <p>Build and manage your supplement stacks. Integrated inventory system with automated depletion alerts and reminders.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Hydration System</h3>
-                <p>Monitor daily water intake with a high-intensity hydration tracker. Quick-add system optimized for gym performance.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Recovery Monitor</h3>
-                <p>Log sleep quality and recovery metrics. Ensure your central nervous system is ready for the next bout of absolute intensity.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Body Composition</h3>
-                <p>Track visual and physiological evolution. Log weight, body fat percentage, and key measurements with detailed trend analysis.</p>
-            </div>
-            <div class="feature-card">
-                <h3>HIT Routine Library</h3>
-                <p>Instant access to High Intensity exercise protocols with full execution and form guides.</p>
-            </div>
+        <h1>SHARED TEMPLATE</h1>
+        <p>A training protocol or nutritional template has been shared with you. To view and save this content, open it in the Rugged app.</p>
+
+        <a href="javascript:void(0)" onclick="openApp()" class="btn btn-primary">OPEN IN APP</a>
+
+        <div class="footer-text">
+            RUGGED APP
         </div>
-    </section>
+    </div>
 
-    <section id="philosophy" class="ideology-section">
-        <div class="container">
-            <h2 class="section-title">The <span>Ideology</span></h2>
-            <p class="quote">"It is only through intensity of effort that the muscle is compelled to grow."</p>
-            <p>Rugged App is built on the principles of brief, infrequent, and intense training. We don't just track reps; we track the path to maximum adaptation.</p>
-            <a href="about.html" class="btn" style="margin-top: 40px;">LEARN MORE</a>
-        </div>
-    </section>
-
-    <footer>
-        <div class="nav-logo">RUGGED APP</div>
-        <p style="color: #444444; margin-top: 10px;">&copy; 2026 RUGGED APP</p>
-
-        <div class="footer-links">
-            <a href="disclaimer.html">Disclaimer</a>
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="terms.html">Terms of Service</a>
-            <a href="legal.html">Legal</a>
-        </div>
-    </footer>
+    <script>
+        function openApp() {
+            window.location.href = window.location.href;
+        }
+    </script>
 </body>
 </html>

@@ -2,6 +2,16 @@
 <html lang="en">
 <head>
     <base href="/rugged/">
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages router recovery
+      (function() {
+        var match = window.location.search.match(/[?&]p=([^&]+)/);
+        if (match) {
+          var route = decodeURIComponent(match[1]);
+          window.history.replaceState(null, null, window.location.pathname + route);
+        }
+      })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rugged App | High Intensity Training</title>

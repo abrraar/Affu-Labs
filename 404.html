@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AffuLabs / Rugged</title>
+  <script type="text/javascript">
+    // GitHub Pages SPA redirect handler for subpaths (/rugged/)
+    var l = window.location;
+    var pathname = l.pathname;
+
+    if (pathname.startsWith('/rugged')) {
+      l.replace(
+        l.protocol + '//' + l.host + '/rugged/?p=' +
+        encodeURIComponent(pathname.slice(7) + l.search) + l.hash
+      );
+    } else {
+      l.replace(
+        l.protocol + '//' + l.host + '/?p=' +
+        encodeURIComponent(pathname + l.search) + l.hash
+      );
+    }
+  </script>
+</head>
+<body>
+</body>
+</html>

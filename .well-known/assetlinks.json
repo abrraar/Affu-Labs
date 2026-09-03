@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.affulabs.rugged",
+      "sha256_cert_fingerprints": [
+        "A3:CD:15:9D:01:1F:6A:DF:C7:70:86:FA:8A:A8:55:FA:5C:63:A8:88:AE:52:D0:4C:E2:C5:FE:6B:8B:F1:71:11"
+      ]
+    }
+  }
+]

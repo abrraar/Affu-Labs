@@ -4,7 +4,7 @@
     "details": [
       {
         "appID": "YOUR_TEAM_ID.com.affulabs.rugged",
-        "paths": ["/share/*"]
+        "paths": ["/rugged/share/*"]
       }
     ]
   }

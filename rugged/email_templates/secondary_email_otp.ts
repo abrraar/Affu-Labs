@@ -4,7 +4,7 @@ serve(async (req) => {
   try {
     const { email, otp } = await req.json()
 
-    const RESEND_API_KEY = ""
+    const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY") ?? ""
 
     const htmlContent = `
 <!DOCTYPE html>
@@ -79,7 +79,7 @@ serve(async (req) => {
               INTENSE. BRIEF. INFREQUENT.
             </p>
             <p style="font-family: 'Impact', 'Anon', 'Arial Black', sans-serif; font-size: 11px; color: #444444; font-weight: 400; text-transform: uppercase; letter-spacing: 2px; margin: 10px 0 0 0;">
-              &copy; 2026 <a href="https://affulabs.com" style="color: #444444; text-decoration: none;">AFFULABS.COM</a>
+              &copy; 2026 <a href="https://affulabs.com/rugged" style="color: #444444; text-decoration: none;">AFFULABS.COM/RUGGED</a>
             </p>
           </td>
         </tr>
@@ -99,7 +99,7 @@ serve(async (req) => {
         "Authorization": `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "Rugged <verification@affulabs.com>",
+        from: "Rugged <rugged@affulabs.com>",
         to: [email],
         subject: "VERIFICATION PROTOCOL: Secondary Email",
         html: htmlContent,

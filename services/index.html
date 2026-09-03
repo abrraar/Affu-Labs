@@ -17,29 +17,19 @@
             initial-value: #06B6D4;
             inherits: true;
         }
-        @property --bg-deep {
-            syntax: '<color>';
-            initial-value: #030712;
-            inherits: true;
-        }
-        @property --text-primary {
-            syntax: '<color>';
-            initial-value: #F8FAFC;
-            inherits: true;
-        }
-        @property --text-secondary {
-            syntax: '<color>';
-            initial-value: #94A3B8;
-            inherits: true;
-        }
-        @property --bg-card {
-            syntax: '<color>';
-            initial-value: rgba(15, 23, 42, 0.6);
-            inherits: true;
-        }
         @property --border-blue {
             syntax: '<color>';
             initial-value: rgba(59, 130, 246, 0.2);
+            inherits: true;
+        }
+        @property --glow-1 {
+            syntax: '<color>';
+            initial-value: rgba(59, 130, 246, 0.15);
+            inherits: true;
+        }
+        @property --glow-2 {
+            syntax: '<color>';
+            initial-value: rgba(6, 182, 212, 0.05);
             inherits: true;
         }
 
@@ -51,6 +41,8 @@
             --accent-cyan: #06B6D4;
             --text-primary: #F8FAFC;
             --text-secondary: #94A3B8;
+            --glow-1: rgba(59, 130, 246, 0.15);
+            --glow-2: rgba(6, 182, 212, 0.05);
         }
 
         * {
@@ -65,29 +57,24 @@
             color: var(--text-primary);
             overflow-x: hidden;
             line-height: 1.6;
-            animation: themeTransition 3s ease-in-out forwards;
+            animation: accentTransition 3.5s ease-in-out forwards;
             animation-delay: 0.5s;
-            transition: background-color 3s ease-in-out, color 3s ease-in-out;
         }
 
-        @keyframes themeTransition {
+        @keyframes accentTransition {
             from {
                 --accent-blue: #3B82F6;
                 --accent-cyan: #06B6D4;
-                --bg-deep: #030712;
-                --text-primary: #F8FAFC;
-                --text-secondary: #94A3B8;
-                --bg-card: rgba(15, 23, 42, 0.6);
                 --border-blue: rgba(59, 130, 246, 0.2);
+                --glow-1: rgba(59, 130, 246, 0.15);
+                --glow-2: rgba(6, 182, 212, 0.05);
             }
             to {
-                --accent-blue: #2D8A4E;
-                --accent-cyan: #1E5E35;
-                --bg-deep: #6BEB91;
-                --text-primary: #030712;
-                --text-secondary: #2D4A37;
-                --bg-card: rgba(255, 255, 255, 0.2);
-                --border-blue: rgba(45, 138, 78, 0.3);
+                --accent-blue: #6BEB91;
+                --accent-cyan: #4ADE80;
+                --border-blue: rgba(107, 235, 145, 0.2);
+                --glow-1: rgba(107, 235, 145, 0.15);
+                --glow-2: rgba(74, 222, 128, 0.05);
             }
         }
 
@@ -99,7 +86,7 @@
             width: 100%;
             max-width: 800px;
             height: 400px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(6, 182, 212, 0.05) 50%, transparent 80%);
+            background: radial-gradient(circle, var(--glow-1) 0%, var(--glow-2) 50%, transparent 80%);
             z-index: -1;
             filter: blur(80px);
         }
@@ -167,7 +154,7 @@
             align-items: center;
             gap: 8px;
             padding: 6px 14px;
-            background: rgba(59, 130, 246, 0.1);
+            background: var(--glow-2);
             border: 1px solid var(--border-blue);
             border-radius: 50px;
             font-size: 11px;
@@ -187,7 +174,7 @@
         }
 
         h1 span, h2 span {
-            background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 50%, #06B6D4 100%);
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-cyan) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -307,7 +294,7 @@
             transition: all 0.2s;
             background: var(--accent-blue);
             color: var(--bg-deep);
-            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 20px -5px rgba(107, 235, 145, 0.3);
         }
 
         .btn:hover {

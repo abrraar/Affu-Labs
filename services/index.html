@@ -7,6 +7,17 @@
     <link rel="icon" type="image/png" href="../logo/affulabs_logo_nobackground.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <style>
+        @property --accent-blue {
+            syntax: '<color>';
+            initial-value: #3B82F6;
+            inherits: true;
+        }
+        @property --accent-cyan {
+            syntax: '<color>';
+            initial-value: #06B6D4;
+            inherits: true;
+        }
+
         :root {
             --bg-deep: #030712;
             --bg-card: rgba(15, 23, 42, 0.6);
@@ -29,6 +40,19 @@
             color: var(--text-primary);
             overflow-x: hidden;
             line-height: 1.6;
+            animation: themeTransition 2.5s ease-in-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes themeTransition {
+            from {
+                --accent-blue: #3B82F6;
+                --accent-cyan: #06B6D4;
+            }
+            to {
+                --accent-blue: #6BEB91;
+                --accent-cyan: #55D67D;
+            }
         }
 
         .tech-glow {
@@ -211,7 +235,9 @@
             font-weight: 700;
             font-size: 20px;
             flex-shrink: 0;
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+            color: var(--bg-deep);
+            box-shadow: 0 0 20px rgba(107, 235, 145, 0.3);
+            transition: box-shadow 2.5s ease-in-out;
         }
 
         .step-content h4 {
@@ -242,10 +268,10 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            transition: all 0.2s;
+            transition: all 0.2s, background 2.5s ease-in-out;
             background: var(--accent-blue);
-            color: white;
-            box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.4);
+            color: var(--bg-deep);
+            box-shadow: 0 10px 20px -5px rgba(107, 235, 145, 0.4);
         }
 
         .btn:hover {

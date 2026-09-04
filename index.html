@@ -37,6 +37,9 @@
             color: var(--text-primary);
             overflow-x: hidden;
             line-height: 1.6;
+        }
+
+        body.from-services {
             animation: returnTransition 3s ease-in-out forwards;
         }
 
@@ -480,5 +483,11 @@
         <p>&copy; 2026 AffuLabs. All rights reserved. Advanced Software & Intelligent Systems.</p>
     </footer>
 
+    <script>
+        // Only trigger the return transition if coming from the services page
+        if (document.referrer.includes('/services/')) {
+            document.body.classList.add('from-services');
+        }
+    </script>
 </body>
 </html>

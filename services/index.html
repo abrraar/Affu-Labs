@@ -58,6 +58,12 @@
             inherits: true;
         }
 
+        @property --logo-filter {
+            syntax: '<string>';
+            initial-value: 'hue-rotate(0deg)';
+            inherits: true;
+        }
+
         :root {
             --bg-deep: #030712;
             --bg-card: rgba(15, 23, 42, 0.6);
@@ -70,6 +76,7 @@
             --glow-1: rgba(59, 130, 246, 0.15);
             --glow-2: rgba(6, 182, 212, 0.05);
             --cta-bg: rgba(59, 130, 246, 0.1);
+            --logo-filter: hue-rotate(0deg);
         }
 
         * {
@@ -115,38 +122,16 @@
             }
         }
 
-        .tech-glow {
-            position: absolute;
-            top: -100px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 800px;
-            height: 400px;
-            background: radial-gradient(circle, var(--glow-1) 0%, var(--glow-2) 50%, transparent 80%);
-            z-index: -1;
-            filter: blur(80px);
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 24px 20px;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-        }
-
         .logo-img {
             height: 34px;
             width: auto;
+            animation: logoFilterShift 4s ease-in-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes logoFilterShift {
+            from { filter: hue-rotate(0deg); }
+            to { filter: hue-rotate(-110deg) brightness(1.2) saturate(1.2); }
         }
 
         .logo-text {

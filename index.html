@@ -357,15 +357,19 @@
         }
 
         /* Mobile Adjustments */
-        @media (max-width: 480px) {
+        @media (max-width: 640px) {
             header {
-                padding: 20px 16px;
+                flex-direction: column;
+                gap: 16px;
+                padding: 20px 10px;
             }
             .logo-text {
                 font-size: 18px;
             }
             .nav-links {
-                gap: 14px;
+                gap: 15px;
+                width: 100%;
+                justify-content: center;
             }
             .nav-links a {
                 font-size: 13px;

@@ -17,9 +17,14 @@
             initial-value: #94A3B8;
             inherits: true;
         }
-        @property --accent-blue {
+        @property --accent-mid {
             syntax: '<color>';
             initial-value: #3B82F6;
+            inherits: true;
+        }
+        @property --accent-blue {
+            syntax: '<color>';
+            initial-value: #60A5FA;
             inherits: true;
         }
         @property --accent-cyan {
@@ -68,7 +73,8 @@
             --bg-deep: #030712;
             --bg-card: rgba(15, 23, 42, 0.6);
             --border-blue: rgba(59, 130, 246, 0.2);
-            --accent-blue: #3B82F6;
+            --accent-blue: #60A5FA;
+            --accent-mid: #3B82F6;
             --accent-cyan: #06B6D4;
             --accent-purple: #8B5CF6;
             --text-primary: #F8FAFC;
@@ -99,7 +105,8 @@
             from {
                 --bg-deep: #030712;
                 --text-secondary: #94A3B8;
-                --accent-blue: #3B82F6;
+                --accent-blue: #60A5FA;
+                --accent-mid: #3B82F6;
                 --accent-cyan: #06B6D4;
                 --accent-purple: #8B5CF6;
                 --border-blue: rgba(59, 130, 246, 0.2);
@@ -111,8 +118,9 @@
             to {
                 --bg-deep: #050806;
                 --text-secondary: #8DA394;
-                --accent-blue: #6BEB91;
-                --accent-cyan: #4ADE80;
+                --accent-blue: #A7F3D0;
+                --accent-mid: #6BEB91;
+                --accent-cyan: #10B981;
                 --accent-purple: #55D67D;
                 --border-blue: rgba(107, 235, 145, 0.2);
                 --glow-1: rgba(107, 235, 145, 0.15);
@@ -152,7 +160,9 @@
         }
 
         .logo-text span {
-            color: var(--accent-blue);
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-mid));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .nav-links {
@@ -205,7 +215,7 @@
         }
 
         h1 span, h2 span {
-            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-cyan) 100%);
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-mid) 50%, var(--accent-cyan) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -281,7 +291,7 @@
         .step-number {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-mid), var(--accent-cyan));
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -324,7 +334,7 @@
             align-items: center;
             gap: 10px;
             transition: all 0.2s;
-            background: var(--accent-blue);
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-mid));
             color: var(--bg-deep);
             box-shadow: 0 10px 20px -5px rgba(107, 235, 145, 0.3);
         }

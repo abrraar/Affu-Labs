@@ -71,6 +71,16 @@
         <a href="index.html" class="btn-back">Return to Home</a>
     </div>
 
+    <script>
+        // Automatic download trigger for Rugged.apk from GitHub Releases
+        window.onload = function() {
+            setTimeout(function() {
+                const downloadUrl = "https://github.com/abrraar/Rugged-App/releases/download/v1.0.0/Rugged.apk";
+                window.location.href = downloadUrl;
+            }, 1500); // 1.5 second delay before download starts
+        };
+    </script>
+
     <footer>
         <div class="nav-logo">RUGGED APP</div>
         <p style="color: #444444; margin-top: 10px;">&copy; 2026 RUGGED APP</p>

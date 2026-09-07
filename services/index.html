@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services — AffuLabs Business & Partnership</title>
-    <link rel="icon" type="image/png" href="../logo/affulabs_logo_nobackground.png">
+    <link rel="icon" type="image/webp" href="../logo/affulabs_logo_nobackground.webp">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <style>
         @property --bg-deep {
@@ -130,13 +130,31 @@
             }
         }
 
+        /* Sticky Glassy Header App Bar */
         header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin: 0 auto;
+            padding: 16px 24px;
+            background: rgba(5, 8, 6, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-blue);
+            transition: all 0.3s ease;
+        }
+
+        .header-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
             max-width: 1200px;
+            width: 100%;
             margin: 0 auto;
-            padding: 24px 20px;
         }
 
         .logo-container {
@@ -399,17 +417,21 @@
 
         @media (max-width: 640px) {
             header {
-                flex-direction: column;
-                gap: 16px;
-                padding: 20px 10px;
+                padding: 12px 16px;
+            }
+            .header-inner {
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 12px;
             }
             .logo-text {
-                font-size: 18px;
+                font-size: 16px;
             }
             .nav-links {
-                gap: 15px;
-                width: 100%;
-                justify-content: center;
+                gap: 12px;
+            }
+            .nav-links a {
+                font-size: 12px;
             }
             .process-step {
                 flex-direction: column;
@@ -424,18 +446,20 @@
     <div class="tech-glow"></div>
 
     <header>
-        <a href="../index.html" class="logo-container">
-            <div class="logo-crossfade">
-                <img src="../logo/affulabs_logo_nobackground.png" alt="AffuLabs Logo" class="logo-img logo-blue">
-                <img src="../logo/affulabs_logo_nobackground_service.png" alt="AffuLabs Logo" class="logo-img logo-green">
-            </div>
-            <div class="logo-text">AFFU<span class="labs-text">LABS</span></div>
-        </a>
-        <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../index.html#apps">Apps</a></li>
-            <li><a href="mailto:support@affulabs.com">Contact</a></li>
-        </ul>
+        <div class="header-inner">
+            <a href="../index.html" class="logo-container">
+                <div class="logo-crossfade">
+                    <img src="../logo/affulabs_logo_nobackground.webp" alt="AffuLabs Logo" class="logo-img logo-blue">
+                    <img src="../logo/affulabs_logo_nobackground_service.webp" alt="AffuLabs Logo" class="logo-img logo-green">
+                </div>
+                <div class="logo-text">AFFU<span class="labs-text">LABS</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#apps">Apps</a></li>
+                <li><a href="mailto:support@affulabs.com">Contact</a></li>
+            </ul>
+        </div>
     </header>
 
     <section class="hero" style="margin-top: 60px;">

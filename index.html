@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AffuLabs — High-Performance Software & Intelligent Systems</title>
-    <link rel="icon" type="image/png" href="logo/affulabs_logo_nobackground.png">
+    <link rel="icon" type="image/webp" href="logo/affulabs_logo_nobackground.webp">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <style>
         @property --accent-blue { syntax: '<color>'; initial-value: #3B82F6; inherits: true; }
@@ -74,13 +74,31 @@
             filter: blur(80px);
         }
 
+        /* Sticky Glassy Header App Bar */
         header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin: 0 auto;
+            padding: 16px 24px;
+            background: rgba(3, 7, 18, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.12);
+            transition: all 0.3s ease;
+        }
+
+        .header-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
             max-width: 1200px;
+            width: 100%;
             margin: 0 auto;
-            padding: 24px 20px;
         }
 
         .logo-container {
@@ -342,100 +360,6 @@
             object-fit: cover;
         }
 
-        /* Underwater Ocean Waves & Dynamic Sun Beams Effect */
-        .underwater-scene {
-            position: absolute;
-            top: -60px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100vw;
-            max-width: 1400px;
-            height: 520px;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .water-surface-glow {
-            position: absolute;
-            top: -20px;
-            left: 0;
-            width: 100%;
-            height: 240px;
-            background: radial-gradient(ellipse at 40% 0%, rgba(56, 189, 248, 0.38) 0%, rgba(6, 182, 212, 0.22) 35%, rgba(59, 130, 246, 0.08) 68%, transparent 90%);
-            animation: oceanSurfaceRipple 8s ease-in-out infinite alternate;
-            filter: blur(16px);
-        }
-
-        .ocean-caustics {
-            position: absolute;
-            top: 0;
-            left: -10%;
-            width: 120%;
-            height: 180px;
-            background: repeating-linear-gradient(
-                120deg,
-                rgba(255, 255, 255, 0.1) 0px,
-                transparent 18px,
-                rgba(6, 182, 212, 0.15) 36px,
-                transparent 54px,
-                rgba(56, 189, 248, 0.18) 72px
-            );
-            mask-image: radial-gradient(ellipse at 40% 0%, black 30%, transparent 80%);
-            -webkit-mask-image: radial-gradient(ellipse at 40% 0%, black 30%, transparent 80%);
-            animation: causticsWaveFlow 12s linear infinite;
-            filter: blur(12px);
-            opacity: 0.85;
-        }
-
-        @keyframes causticsWaveFlow {
-            0% { transform: translateX(0) scaleY(1); }
-            50% { transform: translateX(-35px) scaleY(1.15); }
-            100% { transform: translateX(0) scaleY(1); }
-        }
-
-        @keyframes oceanSurfaceRipple {
-            0% { opacity: 0.8; transform: translateY(0) scaleY(1); }
-            50% { opacity: 1; transform: translateY(8px) scaleY(1.12); }
-            100% { opacity: 0.85; transform: translateY(-4px) scaleY(0.95); }
-        }
-
-        /* Distinct Animated Sunbeams Streaming Down */
-        .light-beam {
-            position: absolute;
-            top: -60px;
-            height: 580px;
-            background: linear-gradient(180deg, rgba(186, 230, 253, 0.38) 0%, rgba(6, 182, 212, 0.18) 35%, rgba(59, 130, 246, 0.05) 75%, transparent 100%);
-            filter: blur(16px);
-            transform-origin: top center;
-            opacity: 0;
-        }
-
-        .beam-1 { left: 18%; width: 120px; transform: rotate(-18deg); animation: beamPulse1 8s ease-in-out infinite; }
-        .beam-2 { left: 36%; width: 180px; transform: rotate(-8deg); animation: beamPulse2 11s ease-in-out infinite 2s; }
-        .beam-3 { left: 54%; width: 220px; transform: rotate(-1deg); animation: beamPulse3 13s ease-in-out infinite 3.5s; }
-        .beam-4 { left: 72%; width: 140px; transform: rotate(14deg); animation: beamPulse4 9s ease-in-out infinite 5s; }
-
-        @keyframes beamPulse1 {
-            0%, 100% { opacity: 0.04; transform: rotate(-18deg) scaleX(0.9); }
-            50% { opacity: 0.32; transform: rotate(-16deg) scaleX(1.2); }
-        }
-
-        @keyframes beamPulse2 {
-            0%, 100% { opacity: 0.08; transform: rotate(-8deg) scaleX(0.95); }
-            50% { opacity: 0.42; transform: rotate(-6deg) scaleX(1.3); }
-        }
-
-        @keyframes beamPulse3 {
-            0%, 100% { opacity: 0.06; transform: rotate(-1deg) scaleX(1); }
-            50% { opacity: 0.36; transform: rotate(1deg) scaleX(1.25); }
-        }
-
-        @keyframes beamPulse4 {
-            0%, 100% { opacity: 0.04; transform: rotate(14deg) scaleX(0.85); }
-            50% { opacity: 0.28; transform: rotate(12deg) scaleX(1.15); }
-        }
-
         /* Frosted Glassy Arrow Buttons */
         .slider-glass-btn {
             position: absolute;
@@ -630,23 +554,27 @@
         /* Mobile Adjustments */
         @media (max-width: 640px) {
             header {
-                flex-direction: column;
-                gap: 16px;
-                padding: 20px 10px;
+                padding: 12px 16px;
+            }
+            .header-inner {
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 12px;
             }
             .logo-text {
-                font-size: 18px;
+                font-size: 16px;
+            }
+            .logo-img {
+                height: 28px;
             }
             .nav-links {
-                gap: 15px;
-                width: 100%;
-                justify-content: center;
+                gap: 12px;
             }
             .nav-links a {
-                font-size: 13px;
+                font-size: 12px;
             }
             .hero {
-                margin: 30px auto 60px auto;
+                margin: 20px auto 50px auto;
             }
         }
     </style>
@@ -656,31 +584,23 @@
     <div class="tech-glow"></div>
 
     <header>
-        <a href="#" class="logo-container">
-            <img src="logo/affulabs_logo_nobackground.png" alt="AffuLabs Logo" class="logo-img">
-            <div class="logo-text">AFFU<span>LABS</span></div>
-        </a>
-        <ul class="nav-links">
-            <li><a href="#philosophy">Our Ethos</a></li>
-            <li><a href="#apps">Our Apps</a></li>
-            <li><a href="services/index.html">Services</a></li>
-            <li><a href="mailto:support@affulabs.com">Contact</a></li>
-        </ul>
+        <div class="header-inner">
+            <a href="#" class="logo-container">
+                <img src="logo/affulabs_logo_nobackground.webp" alt="AffuLabs Logo" class="logo-img">
+                <div class="logo-text">AFFU<span>LABS</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#philosophy">Our Ethos</a></li>
+                <li><a href="#apps">Our Apps</a></li>
+                <li><a href="services/index.html">Services</a></li>
+                <li><a href="mailto:support@affulabs.com">Contact</a></li>
+            </ul>
+        </div>
     </header>
 
-    <section class="hero" style="position: relative; margin-bottom: 90px;">
-        <!-- Underwater Water Surface Caustics & Sun Beams Effect -->
-        <div class="underwater-scene">
-            <div class="water-surface-glow"></div>
-            <div class="ocean-caustics"></div>
-            <div class="light-beam beam-1"></div>
-            <div class="light-beam beam-2"></div>
-            <div class="light-beam beam-3"></div>
-            <div class="light-beam beam-4"></div>
-        </div>
-
-        <h1 style="position: relative; z-index: 1;">Engineering Elite <span>Software & Intelligent Systems</span></h1>
-        <p class="subtitle" style="position: relative; z-index: 1;">Building high-performance iOS apps, Android apps, and web platforms — with immersive games, drones, and robotics coming soon.</p>
+    <section class="hero" style="margin-bottom: 90px;">
+        <h1>Engineering Elite <span>Software & Intelligent Systems</span></h1>
+        <p class="subtitle">Building high-performance iOS apps, Android apps, and web platforms — with immersive games, drones, and robotics coming soon.</p>
 
         <!-- Large "Our Apps" Title matching site typography -->
         <div style="position: relative; z-index: 1; margin-top: 70px; margin-bottom: 24px; text-align: center;">

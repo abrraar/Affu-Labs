@@ -4,6 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Disclaimer | Rugged App</title>
+    <meta name="description" content="Medical disclaimer, health warning, assumption of risk, and software liability terms for Rugged App.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Open Graph Social Sharing -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Disclaimer | Rugged App">
+    <meta property="og:description" content="Medical disclaimer, health warning, assumption of risk, and software liability terms for Rugged App.">
+    <meta property="og:image" content="https://affulabs.com/favicon.png">
+    <meta property="og:url" content="https://affulabs.com/rugged/disclaimer.html">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Disclaimer | Rugged App">
+    <meta name="twitter:description" content="Medical disclaimer, health warning, assumption of risk, and software liability terms for Rugged App.">
+    <meta name="twitter:image" content="https://affulabs.com/favicon.png">
+
+    <!-- Force HTTPS Redirect -->
+    <script type="text/javascript">
+      if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+        window.location.href = window.location.href.replace('http:', 'https:');
+      }
+    </script>
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PLACEHOLDER');
+    </script>
+
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -60,7 +94,7 @@
 
     <footer>
         <div class="nav-logo">RUGGED APP</div>
-        <p style="color: #444444; margin-top: 10px;">&copy; 2026 RUGGED APP</p>
+        <p style="color: #A0A0A0; margin-top: 10px;">&copy; 2026 RUGGED APP</p>
 
         <div class="footer-links">
             <a href="disclaimer.html">Disclaimer</a>
@@ -69,5 +103,25 @@
             <a href="legal.html">Legal</a>
         </div>
     </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-consent-banner" style="display: none;">
+        <p>We use essential cookies to ensure you get the best experience on Rugged App. Read our <a href="privacy.html">Privacy Policy</a> to learn more.</p>
+        <div class="cookie-btn-group">
+            <button class="btn-cookie btn-cookie-decline" onclick="dismissCookieBanner('declined')">Decline</button>
+            <button class="btn-cookie btn-cookie-accept" onclick="dismissCookieBanner('accepted')">Accept</button>
+        </div>
+    </div>
+    <script>
+      (function() {
+        if (!localStorage.getItem('rugged_cookie_consent')) {
+          document.getElementById('cookie-consent-banner').style.display = 'flex';
+        }
+      })();
+      function dismissCookieBanner(choice) {
+        localStorage.setItem('rugged_cookie_consent', choice);
+        document.getElementById('cookie-consent-banner').style.display = 'none';
+      }
+    </script>
 </body>
 </html>

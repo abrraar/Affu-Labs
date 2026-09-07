@@ -4,6 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timeline | Rugged App</title>
+    <meta name="description" content="Explore the evolution and version history of Rugged App - featuring High Intensity Training tracking updates, analytics, and new features.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Open Graph Social Sharing -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="System Timeline | Rugged App">
+    <meta property="og:description" content="Explore the evolution and version history of Rugged App - featuring HIT tracking updates, analytics, and new features.">
+    <meta property="og:image" content="https://affulabs.com/favicon.png">
+    <meta property="og:url" content="https://affulabs.com/rugged/timeline.html">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="System Timeline | Rugged App">
+    <meta name="twitter:description" content="Explore the evolution and version history of Rugged App - featuring HIT tracking updates, analytics, and new features.">
+    <meta name="twitter:image" content="https://affulabs.com/favicon.png">
+
+    <!-- Force HTTPS Redirect -->
+    <script type="text/javascript">
+      if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+        window.location.href = window.location.href.replace('http:', 'https:');
+      }
+    </script>
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PLACEHOLDER');
+    </script>
+
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="css/styles.css">
     <style>
@@ -103,31 +137,36 @@
         </aside>
 
         <article class="page-body">
-            <span class="last-updated">LAST UPDATED: SEPTEMBER 5, 2026</span>
+            <span class="last-updated">LAST UPDATED: SEPTEMBER 2026</span>
             <div class="timeline-container">
                 <section id="v1-0-0" class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div style="display: flex; align-items: center; margin-bottom: 10px;">
                         <span class="version-tag">v1.0.0</span>
-                        <span class="release-date">September 2026</span>
+                        <span class="release-date">August 2026</span>
                     </div>
-                    <h3>INITIAL DEPLOYMENT & ADAPTIVE ARCHITECTURE</h3>
-                    <p>The comprehensive deployment of Rugged App as a digital ecosystem for High Intensity Training and physiological monitoring, featuring a robust adaptive architecture.</p>
+                    <h3>INITIAL DEPLOYMENT</h3>
+                    <p>The deployment of Rugged App as a digital ecosystem for High Intensity Training and physiological monitoring.</p>
                     <ul class="change-list">
                         <li><strong>HIT Library</strong>: Digital archive comprising classic High Intensity Training cycles and workouts.</li>
                         <li><strong>Exercise Suite</strong>: Dedicated exercise manager providing access to movement guides and custom exercise tracking.</li>
                         <li><strong>The Tracker</strong>: Centralized tracking modules for HIT Workouts, Body Composition, Nutrition, Hydration, Sleep, and Supplement Stacks.</li>
-                        <li><strong>Adaptive Layout Engine</strong>: Implementation of intelligent UI scaling for Tablets and Foldables. The system dynamically adjusts font sizes, widget dimensions, and navigation components.</li>
-                        <li><strong>Offline-First Sync Architecture</strong>: A robust overhaul of the data synchronization layer with local SQLite persistence and background reconciliation to the cloud.</li>
                     </ul>
                 </section>
+
+                <!-- Bottom CTA Section -->
+                <div class="page-cta-section">
+                    <h3>GET THE LATEST VERSION</h3>
+                    <p>Download Rugged App to experience advanced High Intensity Training analytics and progression tracking.</p>
+                    <a href="thank-you.html" class="btn">DOWNLOAD RUGGED APP</a>
+                </div>
             </div>
         </article>
     </main>
 
     <footer>
         <div class="nav-logo">RUGGED APP</div>
-        <p style="color: #444444; margin-top: 10px;">&copy; 2026 RUGGED APP</p>
+        <p style="color: #A0A0A0; margin-top: 10px;">&copy; 2026 RUGGED APP</p>
 
         <div class="footer-links">
             <a href="disclaimer.html">Disclaimer</a>
@@ -136,6 +175,26 @@
             <a href="legal.html">Legal</a>
         </div>
     </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-consent-banner" style="display: none;">
+        <p>We use essential cookies to ensure you get the best experience on Rugged App. Read our <a href="privacy.html">Privacy Policy</a> to learn more.</p>
+        <div class="cookie-btn-group">
+            <button class="btn-cookie btn-cookie-decline" onclick="dismissCookieBanner('declined')">Decline</button>
+            <button class="btn-cookie btn-cookie-accept" onclick="dismissCookieBanner('accepted')">Accept</button>
+        </div>
+    </div>
+    <script>
+      (function() {
+        if (!localStorage.getItem('rugged_cookie_consent')) {
+          document.getElementById('cookie-consent-banner').style.display = 'flex';
+        }
+      })();
+      function dismissCookieBanner(choice) {
+        localStorage.setItem('rugged_cookie_consent', choice);
+        document.getElementById('cookie-consent-banner').style.display = 'none';
+      }
+    </script>
 
     <script>
         const sections = document.querySelectorAll('section[id]');

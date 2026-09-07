@@ -8,7 +8,7 @@
     --accent-blue: #2196F3;
     --text-primary: #FFFFFF;
     --text-secondary: #CCCCCC;
-    --text-muted: #444444;
+    --text-muted: #A0A0A0;
     --font-heading: 'Anton', sans-serif;
     --font-subheading: 'Oswald', sans-serif;
     --font-body: 'Oswald', sans-serif;
@@ -379,9 +379,6 @@ section {
         padding: 180px 5% 80px;
     }
 }
-        padding: 250px 5% 150px;
-    }
-}
 
 .page-content {
     padding: 40px 5% 80px;
@@ -424,21 +421,6 @@ section {
     margin-bottom: 40px;
     display: block;
     text-align: center;
-}
-
-/* Content Pages Styling */
-.page-header {
-    padding: 150px 5% 80px;
-    text-align: center;
-    background-size: cover;
-    background-position: top center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-@media (min-width: 768px) {
-    .page-header {
-        padding: 250px 5% 150px;
-    }
 }
 
 /* Refined Sidebar Layout */
@@ -889,4 +871,133 @@ footer {
         font-size: 12px;
         letter-spacing: 1px;
     }
+}
+
+/* Mobile Responsiveness Improvements (Fix squished sidebar) */
+@media (max-width: 768px) {
+    .page-layout {
+        flex-direction: column;
+        padding: 80px 20px 40px;
+        gap: 20px;
+    }
+
+    .page-sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding-bottom: 15px;
+    }
+
+    .sidebar-menu {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        border-left: none;
+        gap: 10px;
+        padding-bottom: 5px;
+    }
+
+    .sidebar-menu li {
+        margin-bottom: 0;
+    }
+
+    .sidebar-menu a {
+        border-left: none;
+        border-bottom: 2px solid transparent;
+        padding: 6px 12px;
+    }
+
+    .sidebar-menu a.active {
+        border-bottom-color: var(--accent-color);
+        background: rgba(139, 26, 47, 0.15);
+    }
+
+    .page-body {
+        max-width: 100%;
+    }
+}
+
+/* Cookie Consent Banner */
+#cookie-consent-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    max-width: 480px;
+    background: #141414;
+    border: 1px solid var(--accent-color);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    border-radius: 8px;
+    padding: 20px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+}
+
+#cookie-consent-banner p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
+#cookie-consent-banner p a {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.cookie-btn-group {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.btn-cookie {
+    padding: 8px 16px;
+    font-size: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: var(--font-subheading);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+}
+
+.btn-cookie-accept {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.btn-cookie-decline {
+    background-color: transparent;
+    border: 1px solid #333;
+    color: var(--text-secondary);
+}
+
+/* Page End CTA Section */
+.page-cta-section {
+    margin-top: 60px;
+    padding: 40px 20px;
+    background: linear-gradient(180deg, #121212 0%, #080808 100%);
+    border: 1px solid rgba(139, 26, 47, 0.3);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.page-cta-section h3 {
+    margin-top: 0 !important;
+    font-size: 24px;
+    color: var(--text-primary);
+}
+
+.page-cta-section p {
+    font-size: 15px;
+    margin-bottom: 25px;
+    color: var(--text-secondary);
 }

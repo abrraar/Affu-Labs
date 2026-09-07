@@ -295,13 +295,23 @@
             transform: translateY(-4px);
         }
 
-        .project-slide-card.coming-soon-card {
-            border-style: dashed;
-            border-color: rgba(148, 163, 184, 0.2);
-            background: rgba(15, 23, 42, 0.2);
-            opacity: 0.6;
-            cursor: default;
-            backdrop-filter: blur(8px);
+        /* Side Messages: Text Only, Hidden by Default */
+        .side-message-item {
+            flex: 0 0 280px;
+            scroll-snap-align: center;
+            text-align: center;
+            color: var(--accent-cyan);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
 
         /* Larger App Icon in Center */
@@ -566,34 +576,24 @@
             <div class="project-slider-container">
                 <div class="project-slider" id="projectSlider">
 
-                    <!-- Left Boundary Placeholder: Stay Tuned -->
-                    <div class="project-slide-card coming-soon-card">
-                        <div class="large-app-icon-container" style="background: rgba(59, 130, 246, 0.05); border-style: dashed; width: 88px; height: 88px;">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color: var(--accent-cyan);"><path d="M12 5v14M5 12h14"/></svg>
-                        </div>
-                        <span class="product-tag" style="color: var(--accent-cyan); font-size: 11px; margin-bottom: 8px;">The Lab</span>
-                        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; margin-bottom: 10px; color: var(--text-primary);">Stay Tuned for More Apps</h3>
-                        <p style="color: var(--text-secondary); font-size: 13px; max-width: 280px; margin: 0 auto; line-height: 1.5;">We are actively engineering new intelligent systems, mobile applications, and web platforms.</p>
+                    <!-- Left Text Only Placeholder (Hidden until user swipes left) -->
+                    <div class="side-message-item" id="leftSideMsg">
+                        <span>Stay tuned for more apps</span>
                     </div>
 
-                    <!-- Center Main Active App: Rugged (No Border, Enlarged Icon, Clickable Container) -->
+                    <!-- Center Main Active App: Rugged -->
                     <a href="rugged/index.html" class="project-slide-card" id="ruggedCard">
                         <div class="large-app-icon-container">
                             <img src="rugged/favicon.png" alt="Rugged Icon" class="large-app-icon">
                         </div>
                         <span class="product-tag" style="color: var(--accent-cyan); font-size: 11px; margin-bottom: 8px; font-weight: 600; letter-spacing: 1.5px;">PRODUCTIVITY & UTILITY</span>
                         <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 700; margin-bottom: 12px; color: var(--text-primary); letter-spacing: -0.5px;">Rugged</h3>
-                        <p style="color: var(--text-secondary); font-size: 14px; max-width: 320px; margin: 0 auto; line-height: 1.6; font-weight: 300;">A high-performance ecosystem designed for seamless workflow integration and advanced system management.</p>
+                        <p style="color: var(--text-secondary); font-size: 14px; max-width: 320px; margin: 0 auto; line-height: 1.6; font-weight: 300;">An elite workout tracker designed for relentless intensity, tracking every repetition and pushing every single set to failure.</p>
                     </a>
 
-                    <!-- Right Boundary Placeholder: Stay Tuned -->
-                    <div class="project-slide-card coming-soon-card">
-                        <div class="large-app-icon-container" style="background: rgba(59, 130, 246, 0.05); border-style: dashed; width: 88px; height: 88px;">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color: var(--accent-cyan);"><path d="M12 5v14M5 12h14"/></svg>
-                        </div>
-                        <span class="product-tag" style="color: var(--accent-cyan); font-size: 11px; margin-bottom: 8px;">Future Innovations</span>
-                        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; margin-bottom: 10px; color: var(--text-primary);">Stay Tuned for More Apps</h3>
-                        <p style="color: var(--text-secondary); font-size: 13px; max-width: 280px; margin: 0 auto; line-height: 1.5;">Next-generation iOS, Android, and web tools arriving soon from AffuLabs.</p>
+                    <!-- Right Text Only Placeholder (Hidden until user swipes right) -->
+                    <div class="side-message-item" id="rightSideMsg">
+                        <span>Stay tuned for more apps</span>
                     </div>
 
                 </div>
@@ -675,31 +675,52 @@
             document.body.classList.add('from-services');
         }
 
-        // Center active app card (Rugged)
         const slider = document.getElementById('projectSlider');
         const ruggedCard = document.getElementById('ruggedCard');
+        const leftMsg = document.getElementById('leftSideMsg');
+        const rightMsg = document.getElementById('rightSideMsg');
         const prevBtn = document.getElementById('sliderPrev');
         const nextBtn = document.getElementById('sliderNext');
         let bounceTimeout = null;
 
+        function getCenterOffset() {
+            if (!slider || !ruggedCard) return 0;
+            return ruggedCard.offsetLeft - (slider.offsetWidth / 2) + (ruggedCard.offsetWidth / 2);
+        }
+
         function centerRuggedCard() {
             if (slider && ruggedCard) {
-                const cardLeft = ruggedCard.offsetLeft;
-                const cardWidth = ruggedCard.offsetWidth;
-                const sliderWidth = slider.offsetWidth;
+                const targetLeft = getCenterOffset();
                 slider.scrollTo({
-                    left: cardLeft - (sliderWidth / 2) + (cardWidth / 2),
+                    left: targetLeft,
                     behavior: 'smooth'
                 });
+                if (leftMsg) leftMsg.style.opacity = '0';
+                if (rightMsg) rightMsg.style.opacity = '0';
             }
         }
 
         window.addEventListener('load', centerRuggedCard);
         window.addEventListener('resize', centerRuggedCard);
 
-        // Automatic Bounce-Back to Center App when user swipes or scrolls left/right
         if (slider) {
             slider.addEventListener('scroll', () => {
+                const currentScroll = slider.scrollLeft;
+                const centerOffset = getCenterOffset();
+                const delta = currentScroll - centerOffset;
+
+                // Dynamically reveal side text only when scrolling towards those sides
+                if (delta < -20) {
+                    if (leftMsg) leftMsg.style.opacity = Math.min(1, Math.abs(delta + 20) / 100);
+                    if (rightMsg) rightMsg.style.opacity = '0';
+                } else if (delta > 20) {
+                    if (rightMsg) rightMsg.style.opacity = Math.min(1, Math.abs(delta - 20) / 100);
+                    if (leftMsg) leftMsg.style.opacity = '0';
+                } else {
+                    if (leftMsg) leftMsg.style.opacity = '0';
+                    if (rightMsg) rightMsg.style.opacity = '0';
+                }
+
                 clearTimeout(bounceTimeout);
                 bounceTimeout = setTimeout(() => {
                     centerRuggedCard();
@@ -707,7 +728,6 @@
             });
         }
 
-        // Manual controls triggering slight peek then bounce
         if (prevBtn && nextBtn && slider) {
             prevBtn.addEventListener('click', () => {
                 slider.scrollBy({ left: -260, behavior: 'smooth' });

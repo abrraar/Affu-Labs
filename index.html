@@ -734,25 +734,5 @@
             });
         }
     </script>
-                    if (leftMsg) leftMsg.style.opacity = '0';
-                    if (rightMsg) rightMsg.style.opacity = '0';
-                }
-
-                clearTimeout(bounceTimeout);
-                bounceTimeout = setTimeout(() => {
-                    centerRuggedCard();
-                }, 350);
-            });
-        }
-
-        if (prevBtn && nextBtn && slider) {
-            prevBtn.addEventListener('click', () => {
-                slider.scrollBy({ left: -260, behavior: 'smooth' });
-            });
-            nextBtn.addEventListener('click', () => {
-                slider.scrollBy({ left: 260, behavior: 'smooth' });
-            });
-        }
-    </script>
 </body>
 </html>

@@ -353,30 +353,48 @@
             font-size: 14px;
         }
 
-        /* Fade-in Logo for Services Screen */
-        .presents-logo-container {
-            margin-bottom: 24px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        /* Smooth Header Logo Transition on Services Screen */
+        .logo-crossfade {
+            position: relative;
+            height: 34px;
+            width: 34px;
+            display: inline-block;
         }
 
-        .presents-logo {
-            max-height: 95px;
+        .logo-crossfade .logo-img {
+            height: 34px;
             width: auto;
             object-fit: contain;
-            opacity: 0;
-            transform: scale(0.92) translateY(-10px);
-            animation: logoFadeIn 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            animation-delay: 0.2s;
-            filter: drop-shadow(0 0 30px rgba(107, 235, 145, 0.3));
+            position: absolute;
+            top: 0;
+            left: 0;
         }
 
-        @keyframes logoFadeIn {
-            to {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
+        .logo-crossfade .logo-blue {
+            opacity: 1;
+            animation: logoBlueFade 1.8s ease-in-out forwards;
+            animation-delay: 0.2s;
+        }
+
+        .logo-crossfade .logo-green {
+            opacity: 0;
+            animation: logoGreenFade 1.8s ease-in-out forwards;
+            animation-delay: 0.2s;
+        }
+
+        @keyframes logoBlueFade {
+            to { opacity: 0; }
+        }
+
+        @keyframes logoGreenFade {
+            to { opacity: 1; }
+        }
+
+        .logo-text span.labs-text {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-mid));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: all 1.8s ease;
         }
 
         @media (max-width: 640px) {
@@ -398,9 +416,6 @@
                 align-items: center;
                 text-align: center;
             }
-            .presents-logo {
-                max-height: 70px;
-            }
         }
     </style>
 </head>
@@ -410,8 +425,11 @@
 
     <header>
         <a href="../index.html" class="logo-container">
-            <img src="../logo/affulabs_logo_nobackground.png" alt="AffuLabs Logo" class="logo-img">
-            <div class="logo-text">AFFU<span>LABS</span></div>
+            <div class="logo-crossfade">
+                <img src="../logo/affulabs_logo_nobackground.png" alt="AffuLabs Logo" class="logo-img logo-blue">
+                <img src="../logo/affulabs_presents_logo_nobackground_green.png" alt="AffuLabs Logo" class="logo-img logo-green">
+            </div>
+            <div class="logo-text">AFFU<span class="labs-text">LABS</span></div>
         </a>
         <ul class="nav-links">
             <li><a href="../index.html">Home</a></li>
@@ -420,10 +438,7 @@
         </ul>
     </header>
 
-    <section class="hero" style="margin-top: 40px;">
-        <div class="presents-logo-container">
-            <img src="../logo/affulabs_presents_logo_nobackground_green.png" alt="AffuLabs Presents" class="presents-logo">
-        </div>
+    <section class="hero" style="margin-top: 60px;">
         <h1>Your Vision, <span>Our Engineering</span></h1>
         <p style="color: var(--text-secondary); font-size: 18px; max-width: 700px; margin: 0 auto;">We take your words, thoughts, and ideas and transform them into high-performance digital reality.</p>
     </section>

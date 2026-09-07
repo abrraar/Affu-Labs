@@ -224,6 +224,140 @@
             border-color: var(--accent-blue);
         }
 
+        /* Horizontal Project Slider */
+        .project-slider-section {
+            margin-top: 36px;
+            width: 100%;
+        }
+
+        .project-slider-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .project-slider {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding: 12px 6px 24px 6px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-blue) transparent;
+        }
+
+        .project-slider::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .project-slider::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.4);
+            border-radius: 10px;
+        }
+
+        .project-slider::-webkit-scrollbar-thumb {
+            background: var(--accent-blue);
+            border-radius: 10px;
+        }
+
+        .project-slide-card {
+            flex: 0 0 320px;
+            scroll-snap-align: center;
+            background: var(--bg-card);
+            border: 1px solid var(--border-blue);
+            border-radius: 20px;
+            padding: 30px 24px;
+            backdrop-filter: blur(12px);
+            text-align: left;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        @media (min-width: 640px) {
+            .project-slide-card {
+                flex: 0 0 380px;
+            }
+        }
+
+        .project-slide-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+        }
+
+        .project-slide-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 15px 30px -10px rgba(6, 182, 212, 0.25);
+        }
+
+        .project-slide-card.coming-soon-card {
+            border-style: dashed;
+            border-color: rgba(59, 130, 246, 0.35);
+            background: rgba(15, 23, 42, 0.35);
+            cursor: default;
+        }
+
+        .project-slide-card.coming-soon-card::before {
+            background: linear-gradient(90deg, rgba(59, 130, 246, 0.3), rgba(6, 182, 212, 0.3));
+        }
+
+        .project-slide-card.coming-soon-card:hover {
+            transform: none;
+            border-color: var(--accent-blue);
+            box-shadow: none;
+        }
+
+        .slider-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 12px;
+        }
+
+        .slider-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-blue);
+            color: var(--text-primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .slider-btn:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            background: rgba(59, 130, 246, 0.1);
+            transform: scale(1.05);
+        }
+
+        .slider-hint {
+            font-size: 13px;
+            color: var(--text-secondary);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
         /* Ecosystem Section */
         .ecosystem {
             max-width: 1100px;
@@ -404,12 +538,70 @@
         </div>
         <h1>Engineering Elite <span>Software & Intelligent Systems</span></h1>
         <p class="subtitle">Building high-performance iOS apps, Android apps, and web platforms — with immersive games, drones, and robotics coming soon.</p>
-        <div class="cta-group">
-            <a href="#apps" class="btn btn-primary">
-                View Our Apps
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.33331 8H12.6666M12.6666 8L8.00031 3.33331M12.6666 8L8.00031 12.6666" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-            <a href="#philosophy" class="btn btn-secondary">Our Philosophy</a>
+
+        <!-- Projects Horizontal Slider -->
+        <div id="apps" class="project-slider-section">
+            <div class="project-slider-container">
+                <div class="project-slider" id="projectSlider">
+
+                    <!-- Live Project: Rugged -->
+                    <a href="rugged/index.html" class="project-slide-card">
+                        <div>
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px;">
+                                <div class="app-icon-container" style="margin-bottom: 0;">
+                                    <img src="rugged/favicon.png" alt="Rugged Icon" class="app-icon">
+                                </div>
+                                <span class="badge" style="margin-bottom: 0; padding: 4px 10px; font-size: 10px;">Active Project</span>
+                            </div>
+                            <span class="product-tag">Productivity & Utility</span>
+                            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; margin-bottom: 10px;">Rugged</h3>
+                            <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 20px;">A high-performance ecosystem designed for seamless workflow integration and advanced system management.</p>
+                        </div>
+                        <div class="link-arrow">
+                            Enter Rugged
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.33331 8H12.6666M12.6666 8L8.00031 3.33331M12.6666 8L8.00031 12.6666" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                    </a>
+
+                    <!-- Boundary Placeholder: More Apps Coming Soon -->
+                    <div class="project-slide-card coming-soon-card">
+                        <div>
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px;">
+                                <div class="app-icon-container" style="margin-bottom: 0; background: rgba(59, 130, 246, 0.08); border-style: dashed;">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent-cyan);"><path d="M12 5v14M5 12h14"/></svg>
+                                </div>
+                                <span class="badge" style="margin-bottom: 0; padding: 4px 10px; font-size: 10px; background: rgba(255, 255, 255, 0.05); color: var(--text-secondary); border-color: rgba(255, 255, 255, 0.1);">In Development</span>
+                            </div>
+                            <span class="product-tag" style="color: var(--text-secondary);">The Lab</span>
+                            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; margin-bottom: 10px;">More Apps Coming Soon</h3>
+                            <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 20px;">We are currently engineering more intelligent systems, iOS/Android apps, and web platforms.</p>
+                        </div>
+                        <div style="font-size: 13px; color: var(--text-secondary); display: flex; align-items: center; gap: 6px;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                            Stay Tuned for Updates
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Slider Navigation Controls -->
+                <div class="slider-controls">
+                    <button type="button" class="slider-btn" id="sliderPrev" aria-label="Previous Project">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12L4 8L10 4"/></svg>
+                    </button>
+                    <span class="slider-hint">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7h8M8 12h8M8 17h8"/></svg>
+                        Scroll or Swipe Projects
+                    </span>
+                    <button type="button" class="slider-btn" id="sliderNext" aria-label="Next Project">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12L12 8L6 4"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 28px;">
+            <a href="#philosophy" class="link-arrow" style="font-size: 13px;">Our Philosophy & Ethos &rarr;</a>
         </div>
     </section>
 
@@ -441,30 +633,6 @@
         </div>
     </section>
 
-    <section id="apps" class="ecosystem">
-        <h2 class="section-title">Featured Apps</h2>
-        <div class="card-grid">
-            <div class="product-card">
-                <div class="app-icon-container">
-                    <img src="rugged/favicon.png" alt="Rugged Icon" class="app-icon">
-                </div>
-                <span class="product-tag">Productivity & Utility</span>
-                <h3>Rugged</h3>
-                <p>A high-performance ecosystem designed for seamless workflow integration and advanced system management.</p>
-                <a href="rugged/index.html" class="link-arrow">Enter Rugged &rarr;</a>
-            </div>
-            <div class="product-card" style="opacity: 0.6; border-style: dashed;">
-                <div class="app-icon-container" style="background: transparent; border-style: dashed;">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--text-secondary);"><path d="M12 5v14M5 12h14"/></svg>
-                </div>
-                <span class="product-tag">Coming Soon</span>
-                <h3>New Innovations</h3>
-                <p>We are currently engineering more intelligent systems and high-performance applications.</p>
-                <span class="link-arrow" style="opacity: 0.5;">In Development &rarr;</span>
-            </div>
-        </div>
-    </section>
-
     <section id="ecosystem" class="ecosystem">
         <h2 class="section-title">Capabilities & Solutions</h2>
         <div class="card-grid">
@@ -491,6 +659,20 @@
         // Only trigger the return transition if coming from the services page
         if (document.referrer.includes('/services/')) {
             document.body.classList.add('from-services');
+        }
+
+        // Horizontal Project Slider Navigation Controls
+        const slider = document.getElementById('projectSlider');
+        const prevBtn = document.getElementById('sliderPrev');
+        const nextBtn = document.getElementById('sliderNext');
+
+        if (slider && prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', () => {
+                slider.scrollBy({ left: -360, behavior: 'smooth' });
+            });
+            nextBtn.addEventListener('click', () => {
+                slider.scrollBy({ left: 360, behavior: 'smooth' });
+            });
         }
     </script>
 </body>

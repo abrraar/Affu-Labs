@@ -342,7 +342,7 @@
             object-fit: cover;
         }
 
-        /* Glassy Arrow Icons on Left & Right Sides (No border/background) */
+        /* Glassy Arrow Icons on Left & Right Sides (High Opacity & Height) */
         .slider-glass-btn {
             position: absolute;
             top: 50%;
@@ -353,16 +353,17 @@
             box-shadow: none !important;
             backdrop-filter: none !important;
             -webkit-backdrop-filter: none !important;
-            color: rgba(248, 250, 252, 0.75);
-            width: 56px;
-            height: 56px;
+            color: #FFFFFF;
+            opacity: 0.95;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.4)) drop-shadow(0 0 20px rgba(59, 130, 246, 0.2));
+            filter: drop-shadow(0 0 12px rgba(6, 182, 212, 0.6)) drop-shadow(0 0 24px rgba(59, 130, 246, 0.35));
         }
 
         .slider-glass-btn.prev {
@@ -375,17 +376,18 @@
 
         @media (min-width: 768px) {
             .slider-glass-btn.prev {
-                left: calc(50vw - 270px);
+                left: calc(50vw - 275px);
             }
 
             .slider-glass-btn.next {
-                right: calc(50vw - 270px);
+                right: calc(50vw - 275px);
             }
         }
 
         .slider-glass-btn:hover {
+            opacity: 1;
             color: var(--accent-cyan);
-            filter: drop-shadow(0 0 15px var(--accent-cyan)) drop-shadow(0 0 30px var(--accent-cyan));
+            filter: drop-shadow(0 0 18px var(--accent-cyan)) drop-shadow(0 0 35px var(--accent-cyan));
             transform: translateY(-50%) scale(1.2);
         }
             background: rgba(59, 130, 246, 0.1);
@@ -581,12 +583,12 @@
         <div id="apps" class="project-slider-section">
             <div class="project-slider-container">
 
-                <!-- Glassy Arrow Buttons on Left & Right Sides (Larger Icon, No Background) -->
+                <!-- Glassy Arrow Buttons on Left & Right Sides (Larger Icon & Full Opacity) -->
                 <button type="button" class="slider-glass-btn prev" id="sliderPrev" aria-label="Previous Project">
-                    <svg width="36" height="36" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12L4 8L10 4"/></svg>
+                    <svg width="44" height="44" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12L4 8L10 4"/></svg>
                 </button>
                 <button type="button" class="slider-glass-btn next" id="sliderNext" aria-label="Next Project">
-                    <svg width="36" height="36" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12L12 8L6 4"/></svg>
+                    <svg width="44" height="44" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12L12 8L6 4"/></svg>
                 </button>
 
                 <div class="project-slider" id="projectSlider">

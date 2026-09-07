@@ -342,52 +342,51 @@
             object-fit: cover;
         }
 
-        /* Glassy Navigation Buttons on Left & Right Sides */
+        /* Glassy Arrow Icons on Left & Right Sides (No border/background) */
         .slider-glass-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             z-index: 10;
-            background: rgba(15, 23, 42, 0.35);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            color: var(--text-primary);
-            width: 48px;
-            height: 48px;
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            color: rgba(248, 250, 252, 0.75);
+            width: 56px;
+            height: 56px;
             border-radius: 50%;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+            filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.4)) drop-shadow(0 0 20px rgba(59, 130, 246, 0.2));
         }
 
         .slider-glass-btn.prev {
-            left: 16px;
+            left: 12px;
         }
 
         .slider-glass-btn.next {
-            right: 16px;
+            right: 12px;
         }
 
         @media (min-width: 768px) {
             .slider-glass-btn.prev {
-                left: calc(50vw - 260px);
+                left: calc(50vw - 270px);
             }
 
             .slider-glass-btn.next {
-                right: calc(50vw - 260px);
+                right: calc(50vw - 270px);
             }
         }
 
         .slider-glass-btn:hover {
-            border-color: var(--accent-cyan);
             color: var(--accent-cyan);
-            background: rgba(6, 182, 212, 0.18);
-            box-shadow: 0 0 25px rgba(6, 182, 212, 0.35);
-            transform: translateY(-50%) scale(1.1);
+            filter: drop-shadow(0 0 15px var(--accent-cyan)) drop-shadow(0 0 30px var(--accent-cyan));
+            transform: translateY(-50%) scale(1.2);
         }
             background: rgba(59, 130, 246, 0.1);
             transform: scale(1.05);
@@ -586,12 +585,12 @@
         <div id="apps" class="project-slider-section">
             <div class="project-slider-container">
 
-                <!-- Glassy Arrow Buttons on Left & Right Sides -->
+                <!-- Glassy Arrow Buttons on Left & Right Sides (Larger Icon, No Background) -->
                 <button type="button" class="slider-glass-btn prev" id="sliderPrev" aria-label="Previous Project">
-                    <svg width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12L4 8L10 4"/></svg>
+                    <svg width="36" height="36" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12L4 8L10 4"/></svg>
                 </button>
                 <button type="button" class="slider-glass-btn next" id="sliderNext" aria-label="Next Project">
-                    <svg width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12L12 8L6 4"/></svg>
+                    <svg width="36" height="36" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12L12 8L6 4"/></svg>
                 </button>
 
                 <div class="project-slider" id="projectSlider">

@@ -14,7 +14,7 @@
     <meta property="og:title" content="Privacy Policy | Rugged App">
     <meta property="og:description" content="Privacy Policy for Rugged App. Learn how we collect, protect, and handle your data and user rights.">
     <meta property="og:image" content="https://affulabs.com/favicon.png">
-    <meta property="og:url" content="https://affulabs.com/rugged/privacy.html">
+    <meta property="og:url" content="https://affulabs.com/privacy.html">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -134,6 +134,39 @@
         localStorage.setItem('rugged_cookie_consent', choice);
         document.getElementById('cookie-consent-banner').style.display = 'none';
       }
+    </script>
+
+    <!-- Scroll Spy Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.sidebar-menu a');
+
+        function updateActiveLink() {
+          let currentSectionId = '';
+          const scrollPosition = window.scrollY + 200;
+
+          sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+              currentSectionId = section.getAttribute('id');
+            }
+          });
+
+          if (currentSectionId) {
+            navLinks.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === '#' + currentSectionId) {
+                link.classList.add('active');
+              }
+            });
+          }
+        }
+
+        window.addEventListener('scroll', updateActiveLink);
+        updateActiveLink();
+      });
     </script>
 </body>
 </html>

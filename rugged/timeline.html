@@ -14,7 +14,7 @@
     <meta property="og:title" content="System Timeline | Rugged App">
     <meta property="og:description" content="Explore the evolution and version history of Rugged App - featuring HIT tracking updates, analytics, and new features.">
     <meta property="og:image" content="https://affulabs.com/favicon.png">
-    <meta property="og:url" content="https://affulabs.com/rugged/timeline.html">
+    <meta property="og:url" content="https://affulabs.com/timeline.html">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -196,29 +196,37 @@
       }
     </script>
 
+    <!-- Scroll Spy Script -->
     <script>
+      document.addEventListener('DOMContentLoaded', function() {
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.sidebar-menu a');
 
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 150) {
-                    current = section.getAttribute('id');
-                }
-            });
+        function updateActiveLink() {
+          let currentSectionId = '';
+          const scrollPosition = window.scrollY + 200;
 
+          sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+              currentSectionId = section.getAttribute('id');
+            }
+          });
+
+          if (currentSectionId) {
             navLinks.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href.startsWith('#')) {
-                    link.classList.remove('active');
-                    if (href === '#' + current) {
-                        link.classList.add('active');
-                    }
-                }
+              link.classList.remove('active');
+              if (link.getAttribute('href') === '#' + currentSectionId) {
+                link.classList.add('active');
+              }
             });
-        });
+          }
+        }
+
+        window.addEventListener('scroll', updateActiveLink);
+        updateActiveLink();
+      });
     </script>
 </body>
 </html>

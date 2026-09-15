@@ -379,6 +379,9 @@ section {
         padding: 180px 5% 80px;
     }
 }
+        padding: 250px 5% 150px;
+    }
+}
 
 .page-content {
     padding: 40px 5% 80px;
@@ -423,6 +426,21 @@ section {
     text-align: center;
 }
 
+/* Content Pages Styling */
+.page-header {
+    padding: 150px 5% 80px;
+    text-align: center;
+    background-size: cover;
+    background-position: top center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@media (min-width: 768px) {
+    .page-header {
+        padding: 250px 5% 150px;
+    }
+}
+
 /* Refined Sidebar Layout */
 .page-layout {
     display: flex;
@@ -441,13 +459,14 @@ section {
 }
 
 .page-sidebar {
-    width: 130px;
+    width: 120px;
     flex-shrink: 0;
     position: sticky;
     top: 100px;
     height: calc(100vh - 120px);
     overflow-y: auto;
     scrollbar-width: none;
+    z-index: 10;
 }
 
 .page-sidebar::-webkit-scrollbar {
@@ -520,7 +539,7 @@ section {
 
 .page-body {
     flex: 1;
-    max-width: calc(100% - 160px);
+    min-width: 0;
 }
 
 @media (min-width: 1024px) {
@@ -873,49 +892,24 @@ footer {
     }
 }
 
-/* Mobile Responsiveness Improvements (Fix squished sidebar) */
+/* Removed mobile sidebar override - keeping sidebar on the side as requested */
 @media (max-width: 768px) {
     .page-layout {
-        flex-direction: column;
-        padding: 80px 20px 40px;
-        gap: 20px;
+        padding: 80px 10px 40px;
+        gap: 15px;
     }
 
     .page-sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-        top: 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        padding-bottom: 15px;
-    }
-
-    .sidebar-menu {
-        display: flex;
-        overflow-x: auto;
-        white-space: nowrap;
-        border-left: none;
-        gap: 10px;
-        padding-bottom: 5px;
-    }
-
-    .sidebar-menu li {
-        margin-bottom: 0;
+        width: 100px;
     }
 
     .sidebar-menu a {
-        border-left: none;
-        border-bottom: 2px solid transparent;
-        padding: 6px 12px;
+        padding: 8px 5px;
+        font-size: 10px;
     }
 
-    .sidebar-menu a.active {
-        border-bottom-color: var(--accent-color);
-        background: rgba(139, 26, 47, 0.15);
-    }
-
-    .page-body {
-        max-width: 100%;
+    .page-body h3 {
+        font-size: 22px;
     }
 }
 
@@ -1001,3 +995,4 @@ footer {
     margin-bottom: 25px;
     color: var(--text-secondary);
 }
+

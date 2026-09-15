@@ -14,7 +14,7 @@
     <meta property="og:title" content="Terms of Service | Rugged App">
     <meta property="og:description" content="Terms of Service for Rugged App - outlining user rights, software eligibility, health disclaimers, and liability rules.">
     <meta property="og:image" content="https://affulabs.com/favicon.png">
-    <meta property="og:url" content="https://affulabs.com/rugged/terms.html">
+    <meta property="og:url" content="https://affulabs.com/terms.html">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -65,6 +65,7 @@
                 <li><a href="#ip">4. Intellectual Property</a></li>
                 <li><a href="#health">5. Health Disclaimer</a></li>
                 <li><a href="#liability">6. Liability</a></li>
+                <li><a href="#subscriptions">7. Purchases & Access</a></li>
                 <li><a href="disclaimer.html">Disclaimer</a></li>
                 <li><a href="privacy.html">Privacy Policy</a></li>
             </ul>
@@ -107,6 +108,13 @@
                 <h3>6. LIMITATION OF LIABILITY</h3>
                 <p>The Rugged App team is not liable for indirect or consequential damages arising from your use of the software.</p>
             </section>
+
+            <section id="subscriptions">
+                <h3>7. PURCHASES AND ACCESS</h3>
+                <p><strong>7.1 One-Time Purchase:</strong> Rugged App offers access through one-time, non-recurring purchases for a fixed term. These are not auto-renewing subscriptions.</p>
+                <p><strong>7.2 No Refunds:</strong> All purchases are final. We do not offer refunds or credits for any reason once a purchase is completed.</p>
+                <p><strong>7.3 Expiration and Renewal:</strong> Once the purchased access period expires, your access to pro features will terminate. You must make a new one-time purchase to continue using these services.</p>
+            </section>
         </article>
     </main>
 
@@ -140,6 +148,39 @@
         localStorage.setItem('rugged_cookie_consent', choice);
         document.getElementById('cookie-consent-banner').style.display = 'none';
       }
+    </script>
+
+    <!-- Scroll Spy Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.sidebar-menu a');
+
+        function updateActiveLink() {
+          let currentSectionId = '';
+          const scrollPosition = window.scrollY + 200;
+
+          sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+              currentSectionId = section.getAttribute('id');
+            }
+          });
+
+          if (currentSectionId) {
+            navLinks.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === '#' + currentSectionId) {
+                link.classList.add('active');
+              }
+            });
+          }
+        }
+
+        window.addEventListener('scroll', updateActiveLink);
+        updateActiveLink();
+      });
     </script>
 </body>
 </html>

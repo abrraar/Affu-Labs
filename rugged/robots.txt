@@ -1,5 +1,5 @@
-# robots.txt for Rugged App (affulabs.com/rugged)
+# robots.txt for Rugged App (affulabs.com)
 User-agent: *
 Allow: /
 
-Sitemap: https://affulabs.com/rugged/sitemap.xml
+Sitemap: https://affulabs.com/sitemap.xml
